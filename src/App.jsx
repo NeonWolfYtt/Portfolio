@@ -92,7 +92,7 @@ function App()
             </div>
             <div>
               <h3 className="text-xl text-red-400 mb-2">Beginner</h3>
-              <p>Unreal Engine, Python</p>
+              <p>UI Design</p>
             </div>
           </div>
         </section>     
