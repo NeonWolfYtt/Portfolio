@@ -23,4 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 
-.public/gifs/Teaser.mp4
+public/gifs/Teaser.gif
