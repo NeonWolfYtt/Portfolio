@@ -64,10 +64,10 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
   };
 
   return (
-    <div className={`bg-gray-900 rounded-2xl overflow-hidden shadow-md text-white transition-all duration-500 ${expanded ? 'md:col-span-2' : ''}`}>
+    <div className={`bg-[#1a1a1a] rounded-2xl overflow-hidden shadow-lg text-white transition-all duration-500 ${expanded ? 'md:col-span-2' : ''}`}>
       {/* Project title */}
       <div className="px-4 pt-4">
-        <h3 className="text-2xl font-semibold text-cyan-300">{title}</h3>
+        <h3 className="text-2xl font-semibold text-cyan-400">{title}</h3>
         <p className="text-sm italic text-pink-300">{subtitle}</p>
       </div>
 
@@ -83,7 +83,7 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
             {/* Hide Button */}
             <button
               onClick={handleToggleExpand}
-              className="absolute top-2 right-2 bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm z-10"
+              className="absolute top-2 right-2 bg-cyan-600 hover:bg-cyan-700 text-white px-3 py-1 rounded text-sm z-10"
             >
               Hide
             </button>
@@ -166,7 +166,7 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
               <div className="absolute inset-0 p-4 flex flex-col justify-center items-center transition-opacity duration-300">
                 <p className="text-sm text-center mb-3">{description}</p>
                 <button
-                  className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded"
+                  className="bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded"
                   onClick={handleToggleExpand}
                 >
                   View More
@@ -180,7 +180,7 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
 
       {/* Full Description */}
       {expanded && (
-        <div className="px-4 py-6 text-blue-200">
+        <div className="px-4 py-6 text-pink-200">
           <p>{fullDescription}</p>
         </div>
       )}

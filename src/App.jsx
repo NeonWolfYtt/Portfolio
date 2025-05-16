@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import SkillSection from './components/SkillSection'
 import ProjectCard from './components/ProjectCard'
 import './App.css'
 
@@ -46,7 +47,7 @@ function App()
     setExpandedIndex(prev=> (prev === idx ? null :idx));
   }
   return (
-    <div className="bg-black text-pink-200 min-h-screen font-sans scroll-smooth">
+    <div className="bg-[#0f0f0f] text-pink-100 min-h-screen font-sans scroll-smooth">
       <Header />
       <main className="max-w-5xl mx-auto px-4 py-12">
         {/* Main Intro Section */}
@@ -58,7 +59,7 @@ function App()
         </section>
         {/* Portoflio Section */}
         <section id='portfolio'>
-          <h2 className="text-3xl font-bold text-cyan-200 mb-8">Projects</h2>
+          <h2 className="text-3xl font-bold text-cyan-400 mb-8 border-b border-cyan-700 pb-2">Projects</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {projects.map((proj, idx) => (
               <ProjectCard
@@ -71,39 +72,26 @@ function App()
           </div>
         </section>
         {/* About me Section */}
-        <section id='about' className='my-20 text-center max-w-3x1 mx-auto'>
-          <h2 className='text-3x1 font-bold text-cyan-200 mb-4'>About Me</h2>
+        <section id='about' className='my-20 text-center'>
+          <h2 className='text-3xl font-bold text-cyan-400 mb-8 border-b border-cyan-700 pb-2'>About Me</h2>
           <p className='text-pink-100'>
             I'm a passionate game developer with a focus on immersive gameplay and strong visual identity. My favorite tools include Unity and Blender, and I'm always learning.
           </p>
         </section>
+
+        <SkillSection/>
+
       </main>
       {/* Skills Section*/}
-      <section id="skills" className="my-20">
-          <h2 className="text-3xl font-bold text-cyan-200 text-center mb-8">Skills</h2>
-          <div className="grid md:grid-cols-3 gap-8 text-center text-white">
-            <div>
-              <h3 className="text-xl text-green-400 mb-2">Advanced</h3>
-              <p>Unity, C#, Blender, Git</p>
-            </div>
-            <div>
-              <h3 className="text-xl text-yellow-400 mb-2">Intermediate</h3>
-              <p>Photoshop, Audacity, C++, Vegas Pro, Blender Aimation</p>
-            </div>
-            <div>
-              <h3 className="text-xl text-red-400 mb-2">Beginner</h3>
-              <p>UI Design</p>
-            </div>
-          </div>
-        </section>     
-
-        {/* Education Section*/}
-        <section id="education" className="my-20 text-center">
-          <h2 className="text-3xl font-bold text-cyan-200 mb-4">Education</h2>
-          <p className="text-pink-100">
-            <strong>Programming Technician</strong> · Riga Technical Collage (RTK) (2019–2023)
-          </p>
-        </section>
+      
+            
+      {/* Education Section*/}
+      <section id="education" className="my-20 text-center">
+        <h2 className="text-3xl font-bold text-cyan-400 mb-8 border-b border-cyan-700 pb-2">Education</h2>
+        <p className="text-pink-100">
+          <strong>Programming Technician</strong> · Riga Technical Collage (RTK) (2019–2023)
+        </p>
+      </section>
       {/* <Footer /> */}
       <Footer/>
     </div>
