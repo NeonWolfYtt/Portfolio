@@ -67,8 +67,8 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
     <div className={`bg-[#1a1a1a] rounded-2xl overflow-hidden shadow-lg text-white transition-all duration-500 ${expanded ? 'md:col-span-2' : ''}`}>
       {/* Project title */}
       <div className="px-4 pt-4">
-        <h3 className="text-2xl font-semibold text-cyan-400">{title}</h3>
-        <p className="text-sm italic text-pink-300">{subtitle}</p>
+        <h3 className="text-2xl font-semibold text-white-400">{title}</h3>
+        <p className="text-sm italic text-white-300">{subtitle}</p>
       </div>
 
       {/* Media Section */}
@@ -83,13 +83,13 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
             {/* Hide Button */}
             <button
               onClick={handleToggleExpand}
-              className="absolute top-2 right-2 bg-cyan-600 hover:bg-cyan-700 text-white px-3 py-1 rounded text-sm z-10"
+              className="absolute top-2 right-2 bg-white-600 hover:bg-white-700 text-white px-3 py-1 rounded text-sm z-10"
             >
               Hide
             </button>
 
             {/* Media viewer */}
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-cyan-800">
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-white-800">
               {isVideo ? (
                 <video
                   key={hovered}
@@ -131,7 +131,7 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
                 <div
                   key={idx}
                   onClick={() => setMediaIndex(idx)}
-                  className={`w-20 h-14 rounded-lg border-2 cursor-pointer overflow-hidden ${mediaIndex === idx ? 'border-cyan-400' : 'border-transparent'}`}
+                  className={`w-20 h-14 rounded-lg border-2 cursor-pointer overflow-hidden ${mediaIndex === idx ? 'border-white-400' : 'border-transparent'}`}
                 >
                   {idx === 0 ? (
                     <video src={gif} muted className="w-full h-full object-cover" />
@@ -166,7 +166,7 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
               <div className="absolute inset-0 p-4 flex flex-col justify-center items-center transition-opacity duration-300">
                 <p className="text-sm text-center mb-3">{description}</p>
                 <button
-                  className="bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded"
+                  className="bg-white-600 hover:bg-white-700 text-white px-4 py-2 rounded"
                   onClick={handleToggleExpand}
                 >
                   View More
@@ -180,7 +180,7 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
 
       {/* Full Description */}
       {expanded && (
-        <div className="px-4 py-6 text-pink-200">
+        <div className="px-4 py-6 text-white-200">
           <p>{fullDescription}</p>
         </div>
       )}
