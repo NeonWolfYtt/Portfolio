@@ -1,8 +1,8 @@
 export default function SkillsSection() {
     const skills = {
-      Advanced: ["Unity", "C#", "Git", "Photoshop"],
-      Intermediate: ["Blender", "Shader Graph", "After Effects", "JavaScript", "C++"],
-      Beginner: ["Unreal Engine", "HTML/CSS", "UI Design"],
+      Advanced: ["Unity", "C#", "Git", "Photoshop", "Trello", "Game System Design", "Clean Architecture", "Blender"],
+      Intermediate: ["Shader Graph", "After Effects", "UI/UX Design", "JavaScript", "C++", "Vegas Pro"],
+      Beginner: ["Unreal Engine", "HTML/CSS"],
     };
   
     return (

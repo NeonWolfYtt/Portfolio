@@ -105,7 +105,7 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
                 <img
                   src={media[mediaIndex]}
                   alt={`Screenshot ${mediaIndex}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               )}
 
@@ -147,7 +147,7 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
             <img
               src={image}
               alt={title}
-              className="w-full h-full object-cover absolute top-0 left-0"
+              className="w-full h-full object-contain absolute top-0 left-0"
             />
 
             <video
@@ -180,8 +180,64 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
 
       {/* Full Description */}
       {expanded && (
-        <div className="px-4 py-6 text-white-200">
-          <p>{fullDescription}</p>
+        <div className="px-4 py-6 text-white-200 space-y-6">
+          {/* Full Description */}
+          {fullDescription.split('\n\n').map((para, idx) => (
+            <p key={idx} className="mb-4 text-white-300">{para}</p>
+          ))}
+          {/* Divider */}
+          <hr className="border-white-700" />
+
+          {/* Project Info Grid */}
+          <div className="grid md:grid-cols-2 gap-6 text-sm justify-items-center">
+            {/* Progress */}
+            <div className="flex items-start gap-3">
+              <span className="text-white-400 text-xl">📈</span>
+              <div>
+                <h4 className="font-semibold text-white-300">Progress</h4>
+                <p>{progress}</p>
+              </div>
+            </div>
+
+            {/* Time Spent */}
+            <div className="flex items-start gap-3">
+              <span className="text-white-400 text-xl">⏳</span>
+              <div>
+                <h4 className="font-semibold text-white-300">Time Spent</h4>
+                <p>{timeSpent}</p>
+              </div>
+            </div>
+
+            {/* Skills */}
+            <div className="flex items-start gap-3">
+              <span className="text-white-400 text-xl">🛠️</span>
+              <div>
+                <h4 className="font-semibold text-white-300">Skills</h4>
+                <div className="flex flex-wrap gap-2 mt-1">
+                  {skills.map((skill, idx) => (
+                    <span key={idx} className="bg-white-700 text-white-100 px-2 py-1 rounded-full text-xs">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Tools */}
+            <div className="flex items-start gap-3">
+              <span className="text-white-400 text-xl">🧰</span>
+              <div>
+                <h4 className="font-semibold text-white-300">Tools</h4>
+                <div className="flex flex-wrap gap-2 mt-1">
+                  {tools.map((tool, idx) => (
+                    <span key={idx} className="bg-white-700 text-white-100 px-2 py-1 rounded-full text-xs">
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>
