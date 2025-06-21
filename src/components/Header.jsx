@@ -14,7 +14,7 @@ export default function Header(){
                     <a href="https://www.tiktok.com/@neonwolfytt" target="_blank" rel="noopener noreferrer" className="hover:text-white-400">
                         <FaTiktok size={24}/>
                     </a>
-                    <a href="/RaivisPriede_Resume.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white-400">
+                    <a href="/Raivis_Priede_Resume_2025.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white-400">
                         <FaFileAlt size={24}/>
                     </a>
                 </div>
