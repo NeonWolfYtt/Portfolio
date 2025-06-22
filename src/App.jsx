@@ -20,14 +20,14 @@ function App()
       gif: './gifs/Teaser.mp4',
       
       screenshots:[
-        './images/PolyFarmer/CraftingSearch.png',
-        './images/PolyFarmer/SeedStore.png',
-        './images/PolyFarmer/ForgeSmelting.png',
-        './images/PolyFarmer/ForgeStarting.png',
-        './images/PolyFarmer/WaterFiltering.png',
-        './images/PolyFarmer/PickaxeStrike.png',
-        './images/PolyFarmer/LogSplit.png',
-        './images/PolyFarmer/PolyFarmerIcon.png'
+        './images/PolyFarmer/Image1',
+        './images/PolyFarmer/Image2',
+        './images/PolyFarmer/Image3',
+        './images/PolyFarmer/Image4',
+        './images/PolyFarmer/Image5',
+        './images/PolyFarmer/Image6',
+        './images/PolyFarmer/Image7',
+        './images/PolyFarmer/Image8'
 
       ],
       progress: 'Active',
@@ -127,7 +127,7 @@ function App()
     setExpandedIndex(prev=> (prev === idx ? null :idx));
   }
   return (
-    <div className="bg-[#0f0f0f] text-pink-100 min-h-screen font-sans scroll-smooth">
+    <div className="bg-[#0f0f0f] text-stone-100 min-h-screen font-sans scroll-smooth">
       <Header />
       <main className="max-w-5xl mx-auto px-4 py-12">
         {/* Main Intro Section */}
@@ -158,7 +158,7 @@ function App()
 
           My core strengths lie in gameplay programming, clean code architecture, and intuitive UI/UX design. I'm excited by any opportunity to grow, collaborate, and bring unique ideas to life in interactive form.`
           .split('\n\n').map((para, idx) => (
-            <p key={idx} className="text-pink-100 mb-4">{para}</p>
+            <p key={idx} className="text-stone-100 mb-4">{para}</p>
           ))}
 
         </section>
