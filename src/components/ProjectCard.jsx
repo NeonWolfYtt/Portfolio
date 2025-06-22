@@ -17,7 +17,6 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
 
   const handleMouseEnter = () => {
     if (!expanded) {
-      console.log('Mouse Entered', { expanded, hideOverlay });
       setHovered(true);
       if (videoRef.current) videoRef.current.play();
     }
@@ -25,7 +24,6 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
 
   const handleMouseLeave = () => {
     if (!expanded) {
-      console.log('Mouse Left', { expanded });
       setHovered(false);
       if (videoRef.current) {
         videoRef.current.pause();
@@ -45,18 +43,15 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
   const nextMedia = () => setMediaIndex((prev) => (prev + 1) % media.length);
 
   const handleToggleExpand = () => {
-    console.log('Toggling Expand/Collapse');
     if (onToggleExpand) onToggleExpand();
 
     setExpanded(prev => {
       if (prev) {
-        console.log('Collapsing: Hiding overlay and resetting');
         resetVideo();
         setHideOverlay(true);
         setHovered(false);
         setMediaIndex(0);
       } else {
-        console.log('Expanding: Showing overlay again');
         setHideOverlay(false);
       }
       return !prev;
