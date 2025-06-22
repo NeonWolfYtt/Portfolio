@@ -88,13 +88,13 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
 
       {/* Media Section */}
       <div
-        className="relative mt-2 w-full h-48 sm:h-64 md:h-[560px] flex justify-center items-center"
+        className="relative mt-2 w-full h-[250px] sm:h-[260px] md:h-[360px] flex justify-center items-center"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         {/* Expanded View */}
         {expanded ? (
-          <div className="relative w-full h-full flex flex-col items-center bg-black">
+          <div className="relative w-full h-[400px] sm:h-[560px] md:h-[900px] flex flex-col items-center bg-black">
             {/* Hide Button */}
             <button
               onClick={handleToggleExpand}
@@ -110,7 +110,7 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
 
             {/* Media viewer */}
             <div
-              className="relative w-full aspect-video rounded-lg overflow-hidden border border-white-800"
+              className="relative w-full h-[900px] sm:h-[360px] md:h-[900px] rounded-lg overflow-hidden border border-white-800"
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
@@ -149,6 +149,7 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
                 →
               </button>
             </div>
+
             {/* Mobile Hide Button */}
             <div className="w-full flex justify-end px-4 mt-2 sm:hidden">
               <button
@@ -158,13 +159,14 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
                 Hide
               </button>
             </div>
+
             {/* Thumbnails */}
-            <div className="flex flex-wrap sm:flex-nowrap gap-2 mt-4 overflow-x-auto max-w-full justify-center">
+            <div className="flex flex-wrap sm:flex-nowrap sm:flex-shrink-0 gap-3 mt-4 mb-4 overflow-x-auto max-w-full justify-center z-10 relative bg-[#1a1a1a] px-4 py-4">
               {media.map((src, idx) => (
                 <div
                   key={idx}
                   onClick={() => setMediaIndex(idx)}
-                  className={`w-12 h-10 sm:w-20 sm:h-14 rounded-lg border-2 cursor-pointer overflow-hidden ${mediaIndex === idx ? 'border-white-400' : 'border-transparent'}`}
+                  className={`w-20 h-20 sm:w-20 sm:h-20 rounded-lg border-2 cursor-pointer overflow-hidden ${mediaIndex === idx ? 'border-white-400' : 'border-transparent'}`}
                 >
                   {idx === 0 ? (
                     <video src={gif} muted className="w-full h-full object-cover" />
@@ -174,6 +176,8 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
                 </div>
               ))}
             </div>
+
+
           </div>
         ) : (
           <>
