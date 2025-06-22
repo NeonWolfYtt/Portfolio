@@ -5,6 +5,8 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
   const [mediaIndex, setMediaIndex] = useState(0);
   const [hideOverlay, setHideOverlay] = useState(false);
   const [expanded, setExpanded] = useState(isExpanded);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
 
   const videoRef = useRef(null);
 
@@ -58,6 +60,24 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
     });
   };
 
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX === null || touchEndX === null) return;
+    const distance = touchStartX - touchEndX;
+    if (distance > 50) nextMedia();
+    else if (distance < -50) prevMedia();
+    setTouchStartX(null);
+    setTouchEndX(null);
+  };
+
+
   return (
     <div className={`bg-[#1a1a1a] rounded-2xl overflow-hidden shadow-lg text-white transition-all duration-500 ${expanded ? 'md:col-span-2' : ''}`}>
       {/* Project title */}
@@ -68,7 +88,7 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
 
       {/* Media Section */}
       <div
-        className="relative mt-2 w-full aspect-video flex justify-center items-center"
+        className="relative mt-2 w-full h-48 sm:h-64 md:h-[560px] flex justify-center items-center"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -78,13 +98,23 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
             {/* Hide Button */}
             <button
               onClick={handleToggleExpand}
-              className="absolute top-2 right-2 bg-white-600 hover:bg-white-700 text-white px-3 py-1 rounded text-sm z-10"
+              className="
+                absolute top-2 right-2
+                bg-white-600 hover:bg-white-700 text-white
+                px-3 py-1 rounded text-sm z-10
+                hidden sm:block
+              "
             >
               Hide
             </button>
 
             {/* Media viewer */}
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-white-800">
+            <div
+              className="relative w-full aspect-video rounded-lg overflow-hidden border border-white-800"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               {isVideo ? (
                 <video
                   key={hovered}
@@ -107,26 +137,34 @@ function ProjectCard({ title, subtitle, description, fullDescription, image, gif
               {/* Arrow Controls */}
               <button
                 onClick={prevMedia}
-                className="absolute top-1/2 left-2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/70 p-2 rounded-full"
+                className="absolute top-1/2 left-2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/70 p-1 sm:p-2 rounded-full z-20 hidden  sm:block"
               >
                 ←
               </button>
 
               <button
                 onClick={nextMedia}
-                className="absolute top-1/2 right-2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/70 p-2 rounded-full"
+                className="absolute top-1/2 right-2 -translate-y-1/2 text-white bg-black/40 hover:bg-black/70 p-1 sm:p-2 rounded-full z-20 hidden  sm:block"
               >
                 →
               </button>
             </div>
-
+            {/* Mobile Hide Button */}
+            <div className="w-full flex justify-end px-4 mt-2 sm:hidden">
+              <button
+                onClick={handleToggleExpand}
+                className="bg-white-600 hover:bg-white-700 text-white px-4 py-1 rounded text-sm"
+              >
+                Hide
+              </button>
+            </div>
             {/* Thumbnails */}
-            <div className="flex gap-2 mt-4 overflow-x-auto">
+            <div className="flex flex-wrap sm:flex-nowrap gap-2 mt-4 overflow-x-auto max-w-full justify-center">
               {media.map((src, idx) => (
                 <div
                   key={idx}
                   onClick={() => setMediaIndex(idx)}
-                  className={`w-20 h-14 rounded-lg border-2 cursor-pointer overflow-hidden ${mediaIndex === idx ? 'border-white-400' : 'border-transparent'}`}
+                  className={`w-12 h-10 sm:w-20 sm:h-14 rounded-lg border-2 cursor-pointer overflow-hidden ${mediaIndex === idx ? 'border-white-400' : 'border-transparent'}`}
                 >
                   {idx === 0 ? (
                     <video src={gif} muted className="w-full h-full object-cover" />

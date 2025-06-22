@@ -20,14 +20,14 @@ function App()
       gif: './gifs/Teaser.mp4',
       
       screenshots:[
-        './images/PolyFarmer/Image1',
-        './images/PolyFarmer/Image2',
-        './images/PolyFarmer/Image3',
-        './images/PolyFarmer/Image4',
-        './images/PolyFarmer/Image5',
-        './images/PolyFarmer/Image6',
-        './images/PolyFarmer/Image7',
-        './images/PolyFarmer/Image8'
+        './images/PolyFarmer/Image1.png',
+        './images/PolyFarmer/Image2.png',
+        './images/PolyFarmer/Image3.png',
+        './images/PolyFarmer/Image4.png',
+        './images/PolyFarmer/Image5.png',
+        './images/PolyFarmer/Image6.png',
+        './images/PolyFarmer/Image7.png',
+        './images/PolyFarmer/Image8.png'
 
       ],
       progress: 'Active',
